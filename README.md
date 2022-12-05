@@ -7,6 +7,7 @@ global proc ObjectScatterToolUI()
     button -label "1. Set Objects" -width 295 -c "setobjects" ;
     button -label "2. Rivet" -width 295 -c Rivet ;
     button -label "3. Scatter" -width 295 -c "scatter" ;
+    button -label "Process Reset" -width 295 -c "reset" ;
     showWindow "OSTool" ;
 }
 ObjectScatterToolUI() ;
@@ -41,4 +42,12 @@ global proc scatter()
         doDelete ;
         select ("ScatterObj*");
         doDelete ;
+}
+
+global proc reset()
+{
+    select ("pinOutput*");
+    doDelete ;
+    select ("ScatterObj*");
+    doDelete ;
 }
