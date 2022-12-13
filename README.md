@@ -33,7 +33,7 @@ global proc scatter()
     string $obj[] = `ls -sl` ;
     for ($i=0; $i<size($scloc); $i++)
         {
-            float $pos[] = `xform -q -ws -t $scloc[$i]`;
+            float $pos[] = `xform -q -ws -rp $scloc[$i]`;
             float $rot[] = `xform -q -ws -ro $scloc[$i]`;
             setAttr ( $obj[$i] + ".translate") $pos[0] $pos[1] $pos[2] ;
             setAttr ( $obj[$i] + ".rotate") $rot[0] $rot[1] $rot[2] ;
@@ -46,7 +46,7 @@ global proc scatter()
 
 global proc reset()
 {
-    select ("pinOutput*");
+    select $scloc ;
     doDelete ;
     select ("ScatterObj*");
     doDelete ;
