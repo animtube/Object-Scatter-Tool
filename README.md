@@ -46,7 +46,7 @@ global proc scatter()
 
 global proc reset()
 {
-    select $scloc ;
+    select ("pinOutput*");
     doDelete ;
     select ("ScatterObj*");
     doDelete ;
